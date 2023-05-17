@@ -3,22 +3,22 @@
 #-------------------------------------
 #- Basic setup
 #-------------------------------------
-dataset: robotcar                                         # dataset [kitti_odom, kitti_raw, tum-1/2/3, adelaide1/2]
+dataset: singapore                                         # dataset [kitti_odom, kitti_raw, tum-1/2/3, adelaide1/2, robotcar, 4seasons, singapore]
 seed: 4869                                                # random seed
 image:
-    # height: 960                                           # image height
-    # width: 1280                                           # image width
-    height: 256                                           # image height
+    # height: 544                                           # image height
+    # width: 1024                                           # image width
+    height: 256  # 340                                      # image height # scale width to 640, keep aspect ratio and height would be 320 . to get 256 ,out of 340, crop height to 0.752941177 (256.00000018) and then floor it
     width: 640                                            # image width
     ext: png                                              # image file extension for data loading
-seq: "12-09-overcast-undistort"                                # sequence to run
+seq: "zero"                                # sequence to run
 # frame_step: 1070        # DO NOT FORGET TO CHANGE THIS # DO NOT FILL IN FRAME STEP. it should be 1, don't skip steps. The run file will prompt by itself the starting frame
 
 #-------------------------------------
 #- Directories
 #-------------------------------------
 directory:
-    result_dir: result/oxford/12-09/run2/
+    result_dir: result/singapore/zero/run2/
     img_seq_dir: /home/marcelbp/Desktop/Oxford-dataset/Rain_Datasets                         # image data directory
     # gt_pose_dir: dataset/robotcar                         # (optional) ground-truth pose data directory # not using gt pose
     gt_pose_dir:            # leave blank
@@ -37,7 +37,7 @@ depth:                                                    # Depth configuration
 #- Visualization
 #-------------------------------------
 visualization:                                            # visualization configuration
-    enable: False                                          # enable/disable frame drawer
+    enable: True                                          # enable/disable frame drawer
     save_img: False                                        # enable/disable save frames
     window_h: 600                                         # frame window height
     window_w: 1000                                        # frame window width
